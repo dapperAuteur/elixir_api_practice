@@ -1,11 +1,11 @@
-defmodule Teacher.Api.V1.MovieController do
+defmodule Teacher.MovieController do
   use Teacher.Web, :controller
 
   alias Teacher.Movie
 
   def index(conn, _params) do
     movies = Repo.all(Movie)
-    render(conn, "index.json", movies: movies)
+    render(conn, "index.html", movies: movies)
   end
 
   def new(conn, _params) do
@@ -28,7 +28,7 @@ defmodule Teacher.Api.V1.MovieController do
 
   def show(conn, %{"id" => id}) do
     movie = Repo.get!(Movie, id)
-    render(conn, "show.json", movie: movie)
+    render(conn, "show.html", movie: movie)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -62,5 +62,4 @@ defmodule Teacher.Api.V1.MovieController do
   #   |> put_flash(:info, "Movie deleted successfully.")
   #   |> redirect(to: movie_path(conn, :index))
   # end
-
 end

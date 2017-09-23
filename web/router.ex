@@ -16,6 +16,7 @@ defmodule Teacher.Router do
   scope "/", Teacher do
     pipe_through :browser # Use the default browser stack
 
+    resources "/movies", PageController
     get "/", PageController, :index
   end
 
@@ -24,7 +25,7 @@ defmodule Teacher.Router do
     pipe_through :api
 
     scope "/v1", Api.V1, as: :v1 do
-      resources "/movies", MovieController, only: [:index, :show]
+      resources "/movies", MovieController
     end
   end
 end
