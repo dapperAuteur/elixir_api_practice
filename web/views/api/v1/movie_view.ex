@@ -2,11 +2,11 @@ defmodule Teacher.Api.V1.MovieView do
   use Teacher.Web, :view
 
   def render("index.json", %{movies: movies}) do
-    %{data: render_many(movies, Teacher.Api.V1.MovieView, "movie.json")}
+    render_many(movies, Teacher.Api.V1.MovieView, "movie.json")
   end
 
   def render("show.json", %{movie: movie}) do
-    %{data: render_one(movie, Teacher.Api.V1.MovieView, "movie.json")}
+    render_one(movie, Teacher.Api.V1.MovieView, "movie.json")
   end
 
   def render("movie.json", %{movie: movie}) do
@@ -15,5 +15,5 @@ defmodule Teacher.Api.V1.MovieView do
       summary: movie.summary,
       year: movie.year}
   end
-  
+
 end
